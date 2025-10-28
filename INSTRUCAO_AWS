@@ -1,0 +1,15 @@
+1- curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+2- . ~/.nvm/nvm.sh
+3- nvm install --lts
+4- node -v
+5- sudo yum install git -y
+6- git --version
+7- git clone https://github.com/danilomarley/projeto1-node
+8- ls
+9- cd projeto1-node
+10- ls
+11- sudo su
+12- npm init
+13- sudo su
+14- npm install express --save
+15- node index.js
