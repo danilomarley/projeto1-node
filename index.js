@@ -2,17 +2,18 @@ const express = require("express"); //importa o mÃ³dulo express neste arquivo
 const app = express(); //iniciando o express
 
 //criando a rota inicial
-app.get("/", function(req,res){
-    res.send("<h1>Bem vindo ao meu site novamente!</h1>");
+app.get("/", function(req, res) {
+    const result = "<h1>Site para consultar produtos, utilize as rotas:</h1><h2>/produtos -> Consulta todos os produtos</h2><h2>/consulta/:parametro -> Consulta todos os produtos com um parametro de pesquisa no nome</h2><h2>/cadastro/{:nome} -> Cadastrar produto</h2>"
+    res.send(result);
 })
 
 //rota do cadastro de produtos
-app.get("/produtos", function(req,res){
+app.get("/produtos", function(req, res) {
     res.send("<h1>Lista de Produtos!</h1>");
 })
 
 //rota com parametro 
-app.get("/consulta/:parametro", function(req,res){
+app.get("/consulta/:parametro", function(req, res) {
     //req --> dados enviados pelo cliente
     //res --> resposta enviada pelo servidor de volta ao cliente
     res.send("retorno consulta:" + req.params.parametro);
@@ -20,22 +21,22 @@ app.get("/consulta/:parametro", function(req,res){
 
 
 //rota com parametro opcional
-app.get("/cadastro/{:nome}", function(req,res){
+app.get("/cadastro/{:nome}", function(req, res) {
     //req --> dados enviados pelo cliente
     var nome = req.params.nome;
-    if (nome){
+    if (nome) {
         res.send("<h1>produto " + nome + " criado!</h1>");
-    }else{
+    } else {
         res.send("produto criado!");
     }
-    
+
 })
 
 
-app.listen(process.env.PORT ?? 3000,function(erro){  // cria a aplicaÃ§Ã£o na porta 4000
-    if (erro){
+app.listen(3000, function(erro) { // cria a aplicaÃ§Ã£o na porta 4000
+    if (erro) {
         console.log("Erro ao Iniciar.");
-    }else{
+    } else {
         console.log("Servidor Iniciado.");
     }
 })
